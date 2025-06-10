@@ -1,0 +1,15 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load markdownify %}
+{% block title %}
+    {{ content.title }}
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="entry">
+        {{ content|markdownify:"alternative" }}
+    </div>
+
+{% endblock %}
