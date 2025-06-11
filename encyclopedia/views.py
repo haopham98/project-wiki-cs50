@@ -101,4 +101,9 @@ def edit_entry(request, title):
             })
 
 def random_entry(request):
-    pass
+    import random
+    entries = util.list_entries()
+    if not entries:
+        return HttpResponse("No entries available.", status=404)
+    random_title = random.choice(entries)
+    return redirect("view", title=random_title)

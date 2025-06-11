@@ -12,8 +12,9 @@
         <div class="row">
             <div class="sidebar col-lg-2 col-md-3">
                 <h2>Wiki</h2>
-                <form action="{% url 'search' %}" method="get">
+                <form action="{% url 'search' %}" method="get" class="d-flex align-items-center flex-nowrap">
                     <input class="search-box" type="text" name="q" placeholder="Search...">
+                    <button class="btn btn-primary" type="submit">Search</button>
                 </form>
                 <div>
                     <a href="{% url 'index' %}">Home</a>
