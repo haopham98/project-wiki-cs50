@@ -2,14 +2,14 @@
 
 {% load markdownify %}
 {% block title %}
-    {{ content.title }}
+    {{ title|default:"Entry" }}
 {% endblock %}
 
 
 {% block body %}
 
     <div class="entry">
-        {{ content|markdownify:"alternative" }}
+        {{ content|safe }}
     </div>
 
 {% endblock %}
