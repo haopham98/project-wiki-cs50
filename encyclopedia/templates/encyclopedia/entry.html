@@ -7,9 +7,13 @@
 
 
 {% block body %}
-
+    
     <div class="entry">
         {{ content|safe }}
+    </div>
+
+    <div>
+        <a href="{% url 'edit' title=title %}" class="btn btn-primary">Edit</a>
     </div>
 
 {% endblock %}

@@ -74,4 +74,31 @@ def create_entry(request):
     return HttpResponse("Method not allowed.", status=405)
     
 
+def edit_entry(request, title):
+    
+    if request.method == "GET":
+        entry = util.get_entry(title.strip().title())  # Normalize title
+        if entry is None:
+            return HttpResponse("Entry not found.", status=404)
+        
+        return render(request, "encyclopedia/edit_entry.html", {
+            "title": title,
+            "content": entry
+        })
 
+    if request.method == "POST":
+        content = request.POST.get("content")
+        title = request.POST.get("title").strip().title()
+        
+        
+        if content:
+            util.save_entry(title, content)
+            return redirect("view", title=title)    
+        else:
+            return render(request, "encyclopedia/edit-entry.html", {
+                "error": "Content cannot be empty. your entry was not saved.",
+                "title": title,
+            })
+
+def random_entry(request):
+    pass
