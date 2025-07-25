@@ -42,12 +42,3 @@ textarea {
     flex-direction: column;
 }
 
-div.main {
-    margin-left: 20%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-    box-sizing: border-box;
-}
